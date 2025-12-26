@@ -1,8 +1,13 @@
-import React from 'react'
+import prisma from "@/lib/db"
 
-function page() {
+
+const page = async () => {
+  const post = await prisma.post.findMany();
+
   return (
-    <div className='font-bold bg-red-600'> hello world</div>
+    <div>
+      {JSON.stringify(post)}
+    </div>
   )
 }
 
